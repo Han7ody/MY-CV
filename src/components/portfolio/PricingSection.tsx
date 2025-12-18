@@ -1,5 +1,25 @@
 import React from 'react';
 
+const WHATSAPP_NUMBER = '919592004024';
+
+const getWhatsAppMessage = (title: string, price: string) => {
+  const message = `مرحباً، أنا مهتم بـ *باقة ${title}* بسعر *$${price}/شهرياً*
+
+📝 معلوماتي:
+• الاسم: ___________
+• نوع الموقع المطلوب: ___________
+• تفاصيل المشروع: ___________
+
+أرجو التواصل معي لمناقشة التفاصيل.`;
+  return encodeURIComponent(message);
+};
+
+const handleWhatsAppClick = (title: string, price: string) => {
+  const message = getWhatsAppMessage(title, price);
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+  window.open(whatsappUrl, '_blank');
+};
+
 const pricingPlans = [
   {
     title: 'الأساسية',
@@ -94,12 +114,12 @@ export const PricingSection = () => {
               </h3>
 
               {/* CTA Button */}
-              <a
-                href="#"
+              <button
+                onClick={() => handleWhatsAppClick(plan.title, plan.price)}
                 className="inline-block bg-[#FF4C60] text-white text-[16px] font-bold py-[12px] px-[32px] rounded-[30px] transition-all duration-300 hover:opacity-90 shadow-[0px_5px_20px_0px_rgba(255,76,96,0.4)]"
               >
                 ابدأ الآن
-              </a>
+              </button>
             </div>
           ))}
         </div>
