@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Instagram, Twitter, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingShapes } from "./FloatingShapes";
 import mohandImage from "@/assets/mohand.jpg";
@@ -177,6 +177,12 @@ export const HeroSection = () => {
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <Linkedin className="w-5 h-5" />
+          </a>
+          <a
+            href="#"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Facebook className="w-5 h-5" />
           </a>
         </div>
 
