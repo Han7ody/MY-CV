@@ -151,7 +151,7 @@ export const Sidebar = () => {
           isSidebarOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[10px]"
         }`}>
           <span className="text-[#8B88B1] text-sm whitespace-nowrap">
-            © 2025 مهند أحمد.
+            © 2025 Mohand Ahmed.
           </span>
         </div>
       </aside>
