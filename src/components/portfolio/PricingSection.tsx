@@ -43,13 +43,14 @@ export const PricingSection = () => {
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`relative flex flex-col items-center text-center bg-white p-[30px] rounded-[20px] transition-all duration-300 group
+              className={`relative flex flex-col items-center text-center bg-white p-[30px] rounded-[20px] transition-all duration-500 ease-out group cursor-pointer
+                hover:-translate-y-3 hover:shadow-[0px_20px_40px_0px_rgba(255,76,96,0.3)] hover:scale-[1.02]
                 ${plan.recommended 
                   ? 'z-10 shadow-[0px_5px_20px_0px_rgba(108,108,229,0.5)] py-[40px] px-[30px]' 
                   : 'z-0 shadow-[0px_5px_20px_0px_rgba(69,67,96,0.1)] my-[20px] md:my-[30px]'
                 }
-                ${index === 0 ? 'md:rounded-l-none' : ''}
-                ${index === 2 ? 'md:rounded-r-none' : ''}
+                ${index === 0 ? 'md:rounded-l-none hover:rounded-[20px]' : ''}
+                ${index === 2 ? 'md:rounded-r-none hover:rounded-[20px]' : ''}
               `}
             >
               {/* Recommended Ribbon */}
@@ -62,7 +63,7 @@ export const PricingSection = () => {
               )}
 
               {/* Icon */}
-              <div className="mb-[20px]">
+              <div className="mb-[20px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                 <img
                   src={plan.image}
                   alt={plan.title}
