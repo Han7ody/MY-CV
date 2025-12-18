@@ -1,6 +1,21 @@
 import React from 'react';
 import { Flame, Coffee, Users, Award } from 'lucide-react';
 import profileImage from "@/assets/mohand.jpg";
+import { useCountUp } from '@/hooks/useCountUp';
+
+const CountUpNumber = ({ end, label, icon: Icon }: { end: number; label: string; icon: React.ElementType }) => {
+  const { count, ref } = useCountUp({ end, duration: 2000 });
+  
+  return (
+    <div ref={ref} className="flex items-center">
+      <Icon className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
+      <div>
+        <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">{count}</h3>
+        <p className="text-[16px] text-[#5E5C7F] m-0">{label}</p>
+      </div>
+    </div>
+  );
+};
 
 export const AboutSection = () => {
   return (
@@ -93,46 +108,22 @@ export const AboutSection = () => {
         <div className="flex flex-wrap -mx-[15px] mt-[70px]">
           {/* Fact 1 */}
           <div className="w-1/2 md:w-1/4 px-[15px] mb-[30px] md:mb-0">
-            <div className="flex items-center">
-              <Flame className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
-              <div>
-                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">7</h3>
-                <p className="text-[16px] text-[#5E5C7F] m-0">مشروع مكتمل</p>
-              </div>
-            </div>
+            <CountUpNumber end={7} label="مشروع مكتمل" icon={Flame} />
           </div>
 
           {/* Fact 2 */}
           <div className="w-1/2 md:w-1/4 px-[15px] mb-[30px] md:mb-0">
-            <div className="flex items-center">
-              <Coffee className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
-              <div>
-                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">377</h3>
-                <p className="text-[16px] text-[#5E5C7F] m-0">كوب قهوة</p>
-              </div>
-            </div>
+            <CountUpNumber end={377} label="كوب قهوة" icon={Coffee} />
           </div>
 
           {/* Fact 3 */}
           <div className="w-1/2 md:w-1/4 px-[15px] mb-[30px] md:mb-0">
-            <div className="flex items-center">
-              <Users className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
-              <div>
-                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">5</h3>
-                <p className="text-[16px] text-[#5E5C7F] m-0">عميل راضٍ</p>
-              </div>
-            </div>
+            <CountUpNumber end={5} label="عميل راضٍ" icon={Users} />
           </div>
 
           {/* Fact 4 */}
           <div className="w-1/2 md:w-1/4 px-[15px]">
-            <div className="flex items-center">
-              <Award className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
-              <div>
-                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">5</h3>
-                <p className="text-[16px] text-[#5E5C7F] m-0">جائزة فائزة</p>
-              </div>
-            </div>
+            <CountUpNumber end={5} label="جائزة فائزة" icon={Award} />
           </div>
         </div>
       </div>
