@@ -1,5 +1,5 @@
 import { Sidebar } from "@/components/portfolio/Sidebar";
-import { MobileNav } from "@/components/portfolio/MobileNav";
+
 import { FloatingShapes } from "@/components/portfolio/FloatingShapes";
 import { HeroSection } from "@/components/portfolio/HeroSection";
 import { AboutSection } from "@/components/portfolio/AboutSection";
@@ -16,7 +16,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <FloatingShapes />
       <Sidebar />
-      <MobileNav />
+      
       
       <main className="lg:mr-[80px]">
         <HeroSection />
