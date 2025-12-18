@@ -5,9 +5,9 @@ import { FloatingShapes } from "./FloatingShapes";
 import mohandImage from "@/assets/mohand.jpg";
 
 const roles = [
-  "مصمم UI/UX",
+  "مطور Full-Stack",
   "مطور واجهات",
-  "مصمم جرافيك",
+  "مصمم UI/UX",
   "مبدع رقمي",
 ];
 
