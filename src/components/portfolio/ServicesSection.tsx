@@ -1,5 +1,29 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Code2, Layout, Palette } from 'lucide-react';
+
+const useInView = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, isVisible };
+};
 
 const services = [
   {
@@ -28,6 +52,42 @@ const services = [
   }
 ];
 
+const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
+  const { ref, isVisible } = useInView();
+  
+  return (
+    <div
+      ref={ref}
+      className={`rounded-[20px] p-[30px] text-center transform transition-all duration-500 hover:-translate-y-2 ${service.shadowClass} ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-8'
+      }`}
+      style={{ 
+        backgroundColor: service.bgColor,
+        transitionDelay: `${index * 150}ms`
+      }}
+    >
+      <div className="mb-[25px] flex justify-center">
+        <service.icon 
+          className={`w-[60px] h-[60px] ${service.isLight ? 'text-white' : 'text-[#353353]'}`}
+          strokeWidth={1.5}
+        />
+      </div>
+      <h3 
+        className={`text-[20px] font-bold mb-[15px] mt-0 ${service.isLight ? 'text-white' : 'text-[#353353]'}`}
+      >
+        {service.title}
+      </h3>
+      <p 
+        className={`text-[16px] leading-[1.6] mb-0 ${service.isLight ? 'text-white opacity-90' : 'text-[#5E5C7F]'}`}
+      >
+        {service.description}
+      </p>
+    </div>
+  );
+};
+
 export const ServicesSection = () => {
   return (
     <section id="services" className="py-[110px] bg-[#F9F9FF]">
@@ -40,28 +100,7 @@ export const ServicesSection = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className={`rounded-[20px] p-[30px] text-center transform transition-transform duration-300 hover:-translate-y-2 ${service.shadowClass}`}
-              style={{ backgroundColor: service.bgColor }}
-            >
-              <div className="mb-[25px] flex justify-center">
-                <service.icon 
-                  className={`w-[60px] h-[60px] ${service.isLight ? 'text-white' : 'text-[#353353]'}`}
-                  strokeWidth={1.5}
-                />
-              </div>
-              <h3 
-                className={`text-[20px] font-bold mb-[15px] mt-0 ${service.isLight ? 'text-white' : 'text-[#353353]'}`}
-              >
-                {service.title}
-              </h3>
-              <p 
-                className={`text-[16px] leading-[1.6] mb-0 ${service.isLight ? 'text-white opacity-90' : 'text-[#5E5C7F]'}`}
-              >
-                {service.description}
-              </p>
-            </div>
+            <ServiceCard key={index} service={service} index={index} />
           ))}
         </div>
 
