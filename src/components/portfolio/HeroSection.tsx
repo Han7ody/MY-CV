@@ -161,25 +161,33 @@ export const HeroSection = () => {
         {/* Social Links */}
         <div className="flex items-center justify-center gap-4 mb-8">
           <a
-            href="#"
+            href="https://www.instagram.com/hn.7od"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <Instagram className="w-5 h-5" />
           </a>
           <a
-            href="#"
+            href="https://x.com/han7odyyy"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <Twitter className="w-5 h-5" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/mohand-ahmed-adam-b10a79260"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-            href="#"
+            href="https://www.facebook.com/share/1AUY3veznc/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <Facebook className="w-5 h-5" />
