@@ -102,24 +102,24 @@ export const HeroSection = () => {
         {/* CTA Button */}
         <a
           href="#contact"
-          className="inline-block bg-destructive text-destructive-foreground text-[16px] font-bold py-[12px] px-[32px] rounded-[30px] shadow-[0px_5px_20px_0px_rgba(255,76,96,0.4)] transition-all duration-300 hover:scale-105"
+          className="inline-block bg-destructive text-destructive-foreground text-[16px] font-bold py-[12px] px-[32px] rounded-[30px] shadow-[0px_5px_20px_0px_rgba(255,76,96,0.4)] transition-all duration-300 hover:scale-105 mb-20"
         >
           وظفني
         </a>
-      </div>
 
-      {/* Scroll Down Indicator - Fixed at bottom */}
-      <a 
-        href="#about" 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 cursor-pointer group"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-white/60 text-sm group-hover:text-white transition-colors">انتقل للأسفل</span>
-          <div className="w-[25px] h-[40px] rounded-full border-2 border-white/30 flex justify-center pt-2 group-hover:border-white/60 transition-colors">
-            <div className="w-1.5 h-3 bg-white/50 rounded-full animate-bounce group-hover:bg-white transition-colors" />
-          </div>
+        {/* Scroll Down Indicator */}
+        <div className="mt-16">
+          <a 
+            href="#about" 
+            className="inline-flex flex-col items-center gap-2 cursor-pointer group"
+          >
+            <span className="text-white/60 text-sm group-hover:text-white transition-colors">انتقل للأسفل</span>
+            <div className="w-[25px] h-[40px] rounded-full border-2 border-white/30 flex justify-center pt-2 group-hover:border-white/60 transition-colors">
+              <div className="w-1.5 h-3 bg-white/50 rounded-full animate-bounce group-hover:bg-white transition-colors" />
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
     </section>
   );
 };
