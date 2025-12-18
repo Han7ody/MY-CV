@@ -49,31 +49,36 @@ export const TestimonialsSection = () => {
           العملاء والتقييمات
         </h2>
 
-        {/* Testimonials Grid */}
-        <div className="flex flex-wrap -mx-[15px] mb-[70px]">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="w-full md:w-1/2 px-[15px] mb-[30px] md:mb-0">
-              <div className="flex flex-col items-center">
-                {/* Meta details */}
-                <div className="text-center mb-[20px]">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name}
-                    className="w-[90px] h-[90px] mb-3 rounded-full mx-auto object-cover"
-                  />
-                  <h3 className="text-[20px] font-bold text-[#353353] mb-1">{testimonial.name}</h3>
-                  <span className="text-[14px] text-[#8B88B1]">{testimonial.role}</span>
-                </div>
+        {/* Testimonials Slider */}
+        <div className="relative overflow-hidden mb-[40px]">
+          <div 
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(${currentIndex * 100}%)` }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="w-full flex-shrink-0 px-[15px]">
+                <div className="flex flex-col items-center max-w-[500px] mx-auto">
+                  {/* Meta details */}
+                  <div className="text-center mb-[20px]">
+                    <img 
+                      src={testimonial.avatar} 
+                      alt={testimonial.name}
+                      className="w-[90px] h-[90px] mb-3 rounded-full mx-auto object-cover"
+                    />
+                    <h3 className="text-[20px] font-bold text-[#353353] mb-1">{testimonial.name}</h3>
+                    <span className="text-[14px] text-[#8B88B1]">{testimonial.role}</span>
+                  </div>
 
-                {/* Speech Bubble */}
-                <div className="relative bg-white rounded-[20px] p-[30px] shadow-[0px_5px_20px_0px_rgba(69,67,96,0.1)] after:content-[''] after:absolute after:bottom-full after:left-1/2 after:-ml-[10px] after:border-[10px] after:border-transparent after:border-b-white">
-                  <p className="text-[#5E5C7F] text-[16px] leading-[1.6] text-center m-0">
-                    {testimonial.content}
-                  </p>
+                  {/* Speech Bubble */}
+                  <div className="relative bg-white rounded-[20px] p-[30px] shadow-[0px_5px_20px_0px_rgba(69,67,96,0.1)] after:content-[''] after:absolute after:bottom-full after:left-1/2 after:-ml-[10px] after:border-[10px] after:border-transparent after:border-b-white">
+                    <p className="text-[#5E5C7F] text-[16px] leading-[1.6] text-center m-0">
+                      {testimonial.content}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Pagination Dots */}
@@ -82,11 +87,12 @@ export const TestimonialsSection = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`rounded-full cursor-pointer transition-all ${
+              className={`rounded-full cursor-pointer transition-all duration-300 ${
                 index === currentIndex 
                   ? "w-4 h-2 bg-[#FF4C60]" 
-                  : "w-2 h-2 bg-[#FF4C60]/30"
+                  : "w-2 h-2 bg-[#FF4C60]/30 hover:bg-[#FF4C60]/50"
               }`}
+              aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
         </div>
