@@ -1,26 +1,27 @@
 import React from 'react';
+import { Code2, Layout, Palette } from 'lucide-react';
 
 const services = [
   {
-    title: "تصميم واجهات المستخدم",
-    description: "تصميم واجهات مستخدم جذابة وسهلة الاستخدام تلبي احتياجات عملائك.",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/service-1-4.svg",
+    title: "تطوير الويب المتكامل",
+    description: "بناء مواقع ويب احترافية وتطبيقات متكاملة (Full-Stack) باستخدام أحدث التقنيات.",
+    icon: Code2,
     bgColor: "#6C6CE5",
     shadowClass: "shadow-[0px_5px_20px_0px_rgba(108,108,229,0.5)]",
     isLight: true
   },
   {
-    title: "تطوير الويب",
-    description: "بناء مواقع ويب احترافية وتطبيقات متجاوبة باستخدام أحدث التقنيات.",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/service-2-5.svg",
+    title: "تطوير الواجهة الأمامية",
+    description: "تطوير واجهات أمامية متجاوبة وسريعة باستخدام React وأحدث المكتبات.",
+    icon: Layout,
     bgColor: "#FFD15C",
     shadowClass: "shadow-[0px_5px_20px_0px_rgba(255,209,92,0.4)]",
     isLight: false
   },
   {
-    title: "التصوير الفوتوغرافي",
-    description: "التقاط صور احترافية للمنتجات والمناسبات والبورتريه.",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/service-3-6.svg",
+    title: "تصميم واجهات المستخدم",
+    description: "تصميم واجهات مستخدم جذابة وسهلة الاستخدام تلبي احتياجات عملائك.",
+    icon: Palette,
     bgColor: "#FF4C60",
     shadowClass: "shadow-[0px_5px_20px_0px_rgba(255,123,139,0.4)]",
     isLight: true
@@ -45,10 +46,9 @@ export const ServicesSection = () => {
               style={{ backgroundColor: service.bgColor }}
             >
               <div className="mb-[25px] flex justify-center">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-[80px] h-[80px] object-contain"
+                <service.icon 
+                  className={`w-[60px] h-[60px] ${service.isLight ? 'text-white' : 'text-[#353353]'}`}
+                  strokeWidth={1.5}
                 />
               </div>
               <h3 
