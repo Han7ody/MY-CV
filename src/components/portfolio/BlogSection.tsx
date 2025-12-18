@@ -5,6 +5,7 @@ const posts = [
     id: 1,
     category: 'مراجعات',
     title: 'أفضل 5 أدوات لتطوير التطبيقات لمشروعك',
+    description: 'من VS Code إلى Docker، استعراض شامل لأدوات تسرّع بناء تطبيقات الويب وتحسّن إنتاجية المطورين.',
     date: '09 فبراير، 2024',
     author: 'مهند',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/1-26.svg',
@@ -15,6 +16,7 @@ const posts = [
     id: 2,
     category: 'دروس',
     title: 'مفاهيم خاطئة شائعة حول الدفع الإلكتروني',
+    description: 'تصحيح أخطاء شائعة في دمج بوابات الدفع مثل Stripe وPayPal في تطبيقات Full-Stack.',
     date: '07 فبراير، 2024',
     author: 'مهند',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/2-27.svg',
@@ -25,6 +27,7 @@ const posts = [
     id: 3,
     category: 'أعمال',
     title: '3 أشياء يجب معرفتها عن الشركات الناشئة',
+    description: 'كيف تختار التقنيات المناسبة وتبني MVP قابل للتوسع لشركتك التقنية الناشئة.',
     date: '06 فبراير، 2024',
     author: 'مهند',
     image: 'https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/3-28.svg',
@@ -69,9 +72,12 @@ export const BlogSection = () => {
 
               {/* Content */}
               <div className="p-[30px]">
-                <h3 className="text-[20px] font-bold text-[#353353] mb-4 leading-snug group-hover:text-[#FF4C60] transition-colors duration-300">
+                <h3 className="text-[20px] font-bold text-[#353353] mb-2 leading-snug group-hover:text-[#FF4C60] transition-colors duration-300">
                   <a href={post.link}>{post.title}</a>
                 </h3>
+                <p className="text-[14px] text-[#5E5C7F] mb-4 leading-relaxed">
+                  {post.description}
+                </p>
                 <ul className="flex items-center text-[14px] text-[#8B88B1] gap-3 list-none p-0 m-0">
                   <li className="flex items-center">
                     {post.date}
