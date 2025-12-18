@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const ContactSection = () => {
   const mapAsset = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/images/map-1.svg";
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const whatsappNumber = "919592004024";
+    const messageText = `*رسالة جديدة من الموقع*
+
+*الاسم:* ${formData.name}
+*البريد الإلكتروني:* ${formData.email}
+*الموضوع:* ${formData.subject}
+*الرسالة:* ${formData.message}`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageText)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <section id="contact" className="py-20 bg-[#353353] relative overflow-hidden">
@@ -58,7 +87,7 @@ export const ContactSection = () => {
 
           {/* Right Column: Contact Form */}
           <div className="w-full lg:w-7/12 px-[15px]">
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={handleSubmit}>
               <div className="flex flex-wrap -mx-[15px]">
                 {/* Name Input */}
                 <div className="w-full md:w-1/2 px-[15px] mb-[20px]">
@@ -66,6 +95,8 @@ export const ContactSection = () => {
                     <input
                       type="text"
                       name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="اسمك"
                       className="w-full h-[50px] px-[20px] bg-[#2B2A3E] border-0 rounded-[25px] text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#FF4C60] transition-all"
                     />
@@ -78,6 +109,8 @@ export const ContactSection = () => {
                     <input
                       type="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="البريد الإلكتروني"
                       className="w-full h-[50px] px-[20px] bg-[#2B2A3E] border-0 rounded-[25px] text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#FF4C60] transition-all"
                     />
@@ -90,6 +123,8 @@ export const ContactSection = () => {
                     <input
                       type="text"
                       name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       placeholder="الموضوع"
                       className="w-full h-[50px] px-[20px] bg-[#2B2A3E] border-0 rounded-[25px] text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#FF4C60] transition-all"
                     />
@@ -101,6 +136,8 @@ export const ContactSection = () => {
                   <div className="relative">
                     <textarea
                       name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="الرسالة"
                       rows={5}
                       className="w-full px-[20px] py-[15px] bg-[#2B2A3E] border-0 rounded-[25px] text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#FF4C60] transition-all resize-none"
