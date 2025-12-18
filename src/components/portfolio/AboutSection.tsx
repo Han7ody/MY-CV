@@ -96,7 +96,7 @@ export const AboutSection = () => {
             <div className="flex items-center">
               <Flame className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
               <div>
-                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">198</h3>
+                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">7</h3>
                 <p className="text-[16px] text-[#5E5C7F] m-0">مشروع مكتمل</p>
               </div>
             </div>
@@ -107,7 +107,7 @@ export const AboutSection = () => {
             <div className="flex items-center">
               <Coffee className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
               <div>
-                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">5670</h3>
+                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">377</h3>
                 <p className="text-[16px] text-[#5E5C7F] m-0">كوب قهوة</p>
               </div>
             </div>
@@ -118,7 +118,7 @@ export const AboutSection = () => {
             <div className="flex items-center">
               <Users className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
               <div>
-                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">427</h3>
+                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">5</h3>
                 <p className="text-[16px] text-[#5E5C7F] m-0">عميل راضٍ</p>
               </div>
             </div>
@@ -129,7 +129,7 @@ export const AboutSection = () => {
             <div className="flex items-center">
               <Award className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
               <div>
-                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">35</h3>
+                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">5</h3>
                 <p className="text-[16px] text-[#5E5C7F] m-0">جائزة فائزة</p>
               </div>
             </div>
