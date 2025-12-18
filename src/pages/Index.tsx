@@ -10,7 +10,7 @@ import { PricingSection } from "@/components/portfolio/PricingSection";
 import { TestimonialsSection } from "@/components/portfolio/TestimonialsSection";
 import { BlogSection } from "@/components/portfolio/BlogSection";
 import { ContactSection } from "@/components/portfolio/ContactSection";
-
+import { ScrollToTop } from "@/components/portfolio/ScrollToTop";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -28,6 +28,7 @@ const Index = () => {
         <BlogSection />
         <ContactSection />
       </main>
+      <ScrollToTop />
     </div>
   );
 };
