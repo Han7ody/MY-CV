@@ -7,7 +7,6 @@ import {
   Layers,
   FileText,
   MessageSquare,
-  Menu,
   X,
 } from "lucide-react";
 
@@ -23,7 +22,7 @@ const navItems = [
 
 export const Sidebar = () => {
   const [activeSection, setActiveSection] = useState("home");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,42 +47,43 @@ export const Sidebar = () => {
 
   return (
     <>
-      {/* Mobile Header */}
-      <header className="fixed top-0 left-0 right-0 z-[50] flex lg:hidden items-center justify-between px-[15px] py-2.5 bg-[#353353] border-b border-white/5">
-        <div className="flex items-center">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 ml-4 text-white"
-            aria-label="فتح القائمة"
-          >
-            {isMobileMenuOpen ? <X size={30} /> : <Menu size={30} />}
-          </button>
-          <div className="site-logo">
-            <a href="/">
-              <img
-                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/logo-1.svg"
-                alt="بولبي"
-                className="h-[33px] w-auto"
-              />
-            </a>
-          </div>
-        </div>
+      {/* Fixed Header with Hamburger Menu */}
+      <header className="fixed top-0 left-0 right-0 z-[50] flex items-center justify-between px-[20px] py-4 bg-transparent">
+        {/* Hamburger Menu Button - Three Lines */}
+        <button
+          onClick={() => setIsSidebarOpen(true)}
+          className="flex flex-col justify-center items-center gap-[5px] p-2 group"
+          aria-label="فتح القائمة"
+        >
+          <span className="w-[25px] h-[3px] bg-white rounded-full transition-all duration-300 group-hover:bg-[#FFD15C]"></span>
+          <span className="w-[25px] h-[3px] bg-white rounded-full transition-all duration-300 group-hover:bg-[#FFD15C]"></span>
+          <span className="w-[25px] h-[3px] bg-white rounded-full transition-all duration-300 group-hover:bg-[#FFD15C]"></span>
+        </button>
       </header>
 
-      {/* Overlay for mobile menu */}
-      {isMobileMenuOpen && (
+      {/* Overlay */}
+      {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-[40] lg:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
+          className="fixed inset-0 bg-black/50 z-[90]"
+          onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar Navigation */}
-      <header
-        className={`fixed top-0 right-0 h-full w-[290px] bg-[#353353] p-[50px_40px_40px] z-[100] transition-transform duration-300 transform lg:translate-x-0 ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        } lg:translate-x-0 flex flex-col items-start`}
+      <aside
+        className={`fixed top-0 right-0 h-full w-[290px] bg-[#353353] p-[50px_40px_40px] z-[100] transition-transform duration-300 transform ${
+          isSidebarOpen ? "translate-x-0" : "translate-x-full"
+        } flex flex-col items-start`}
       >
+        {/* Close Button */}
+        <button
+          onClick={() => setIsSidebarOpen(false)}
+          className="absolute top-[20px] left-[20px] text-white hover:text-[#FFD15C] transition-colors"
+          aria-label="إغلاق القائمة"
+        >
+          <X size={28} />
+        </button>
+
         {/* Logo */}
         <div className="site-logo mb-0">
           <a href="/">
@@ -104,7 +104,7 @@ export const Sidebar = () => {
                 <li key={item.id} className="relative py-2 font-medium">
                   <a
                     href={`#${item.id}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => setIsSidebarOpen(false)}
                     className={`flex items-center text-base transition-colors duration-300 ease-in-out hover:text-[#FFD15C] ${
                       activeSection === item.id ? "text-[#FFD15C]" : "text-white"
                     }`}
@@ -126,7 +126,7 @@ export const Sidebar = () => {
             © 2025 مهند أحمد.
           </span>
         </div>
-      </header>
+      </aside>
     </>
   );
 };
