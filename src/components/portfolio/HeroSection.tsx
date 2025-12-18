@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 
-import mohandImage from "@/assets/mohand.jpg";
+import mohandImage from "../../assets/mohand.jpg";
 
 const roles = [
   "مطور Full-Stack",

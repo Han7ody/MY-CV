@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flame, Coffee, Users, Award } from 'lucide-react';
-import profileImage from "@/assets/mohand.jpg";
-import { useCountUp } from '@/hooks/useCountUp';
+import profileImage from "../../assets/mohand.jpg";
+import { useCountUp } from '../../hooks/useCountUp';
 
 const CountUpNumber = ({ end, label, icon: Icon }: { end: number; label: string; icon: React.ElementType }) => {
   const { count, ref } = useCountUp({ end, duration: 2000 });
