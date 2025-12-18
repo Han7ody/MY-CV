@@ -66,7 +66,7 @@ export const ContactSection = () => {
               <p className="text-white/80 text-[16px] leading-[1.6] mb-[30px]">
                 لا تحب النماذج؟ أرسل لي{" "}
                 <a 
-                  href="mailto:name@example.com" 
+                  href="mailto:han7ody@gmail.com" 
                   className="text-[#FF4C60] transition-colors duration-300 hover:text-white"
                 >
                   بريداً إلكترونياً
