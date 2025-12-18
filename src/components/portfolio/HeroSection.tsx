@@ -187,7 +187,15 @@ export const HeroSection = () => {
         </div>
 
         {/* CTA Button */}
-        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 rounded-full text-base font-medium mb-16">
+        <Button 
+          onClick={() => {
+            const contactSection = document.getElementById("contact");
+            if (contactSection) {
+              contactSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 rounded-full text-base font-medium mb-16"
+        >
           وظفني
         </Button>
 
