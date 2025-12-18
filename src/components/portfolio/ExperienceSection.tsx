@@ -87,7 +87,7 @@ const TimelineCard = ({
 
 export const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-[110px] bg-[#F9F9FF]">
+    <section id="experience" className="py-20 bg-[#F9F9FF]">
       <div className="container mx-auto px-[15px] max-w-[1140px]">
         <h2 className="text-[36px] font-bold text-[#353353] mb-[60px] relative">
           الخبرات

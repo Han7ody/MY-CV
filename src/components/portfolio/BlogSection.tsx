@@ -35,7 +35,7 @@ const posts = [
 
 export const BlogSection = () => {
   return (
-    <section id="blog" className="py-[110px] bg-[#F9F9FF]">
+    <section id="blog" className="py-20 bg-[#F9F9FF]">
       <div className="container px-[15px] mx-auto max-w-[1140px]">
         {/* Section Title */}
         <h2 className="text-[36px] font-bold text-[#353353] mb-[60px] relative">

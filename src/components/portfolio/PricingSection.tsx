@@ -53,7 +53,7 @@ const pricingPlans = [
 
 export const PricingSection = () => {
   return (
-    <section id="pricing" className="py-[110px] bg-[#F9F9FF]">
+    <section id="pricing" className="py-20 bg-[#F9F9FF]">
       <div className="container mx-auto px-[15px] max-w-[1140px]">
         {/* Section Title */}
         <h2 className="text-[36px] font-bold text-[#353353] mb-[60px] relative">
