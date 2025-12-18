@@ -1,6 +1,7 @@
 import { Instagram, Twitter, Dribbble } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingShapes } from "./FloatingShapes";
+import profileImage from "@/assets/mohand.jpg";
 
 export const HeroSection = () => {
   return (
@@ -11,7 +12,7 @@ export const HeroSection = () => {
         {/* Avatar */}
         <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-shape-yellow p-1">
           <div className="w-full h-full rounded-full bg-card flex items-center justify-center overflow-hidden">
-            <div className="text-6xl">👨‍💻</div>
+            <img src={profileImage} alt="صورة شخصية" className="w-full h-full object-cover" />
           </div>
         </div>
 
