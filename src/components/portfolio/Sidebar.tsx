@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Home,
   User,
@@ -22,7 +22,29 @@ const navItems = [
 ];
 
 export const Sidebar = () => {
+  const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "services", "experience", "works", "blog", "contact"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -79,22 +101,18 @@ export const Sidebar = () => {
             {navItems.map((item) => {
               const IconComponent = item.icon;
               return (
-                <li key={item.id} className="relative py-2 font-medium group">
+                <li key={item.id} className="relative py-2 font-medium">
                   <a
                     href={`#${item.id}`}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center text-base transition-colors duration-300 ease-in-out text-white hover:text-[#FFD15C]"
+                    className={`flex items-center text-base transition-colors duration-300 ease-in-out hover:text-[#FFD15C] ${
+                      activeSection === item.id ? "text-[#FFD15C]" : "text-white"
+                    }`}
                   >
                     <span className="ml-3 text-lg">
                       <IconComponent className="w-5 h-5" />
                     </span>
                     {item.label}
-                    {/* Three dashes indicator on hover */}
-                    <span className="mr-auto flex gap-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="w-[6px] h-[2px] bg-[#FFD15C] rounded-full"></span>
-                      <span className="w-[6px] h-[2px] bg-[#FFD15C] rounded-full"></span>
-                      <span className="w-[6px] h-[2px] bg-[#FFD15C] rounded-full"></span>
-                    </span>
                   </a>
                 </li>
               );
