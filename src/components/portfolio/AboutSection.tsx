@@ -1,68 +1,143 @@
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-
-const skills = [
-  { name: "التطوير", value: 85 },
-  { name: "تصميم واجهات المستخدم", value: 95 },
-  { name: "التصوير", value: 70 },
-];
-
-const stats = [
-  { value: "198", label: "مشروع مكتمل" },
-  { value: "5670", label: "فنجان قهوة" },
-  { value: "427", label: "عميل راضٍ" },
-  { value: "35", label: "جائزة فائزة" },
-];
+import React from 'react';
+import { Flame, Coffee, Users, Award } from 'lucide-react';
+import profileImage from "@/assets/mohand.jpg";
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 px-6 lg:px-12">
-      <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
-        نبذة عني
-      </h2>
+    <section id="about" className="py-[110px] bg-[#F9F9FF]">
+      <div className="container max-w-[1140px] px-[15px] mx-auto">
+        {/* Section Title */}
+        <h2 className="text-[36px] font-bold text-[#353353] mb-[60px] relative">
+          نبذة عني
+        </h2>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Avatar */}
-        <div className="flex justify-center">
-          <div className="w-64 h-64 bg-card rounded-3xl flex items-center justify-center">
-            <div className="text-8xl">👨‍💼</div>
+        <div className="flex flex-wrap -mx-[15px]">
+          {/* Avatar Column */}
+          <div className="w-full md:w-1/4 px-[15px] mb-[30px] md:mb-0">
+            <div className="text-center md:text-right">
+              <img 
+                src={profileImage}
+                alt="صورة شخصية" 
+                className="inline-block w-[150px] h-[150px] rounded-full object-cover"
+              />
+            </div>
           </div>
-        </div>
 
-        {/* Content */}
-        <div>
-          <p className="text-muted-foreground mb-6 leading-relaxed">
-            أنا بولبي دو، مطور ويب من لندن، المملكة المتحدة. لدي خبرة واسعة في تصميم وبناء وتخصيص المواقع، كما أنني متميز في WordPress.
-          </p>
-
-          <Button variant="outline" className="mb-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            تحميل السيرة الذاتية
-          </Button>
-
-          {/* Skills */}
-          <div className="space-y-4">
-            {skills.map((skill) => (
-              <div key={skill.name}>
-                <div className="flex justify-between mb-2">
-                  <span className="text-sm text-foreground">{skill.name}</span>
-                  <span className="text-sm text-muted-foreground">{skill.value}%</span>
+          {/* Speech Bubble / Skills Column */}
+          <div className="w-full md:w-3/4 px-[15px]">
+            <div className="speech-bubble relative bg-white rounded-[20px] p-[30px] shadow-[0px_5px_20px_0px_rgba(69,67,96,0.1)] before:content-[''] before:absolute md:before:block before:hidden before:right-[-15px] before:top-[45px] before:w-0 before:h-0 before:border-t-[10px] before:border-t-transparent before:border-b-[10px] before:border-b-transparent before:border-l-[15px] before:border-l-white">
+              <div className="flex flex-wrap -mx-[15px]">
+                {/* About Text */}
+                <div className="w-full md:w-1/2 px-[15px] mb-[30px] md:mb-0">
+                  <p className="text-[#5E5C7F] text-[16px] leading-[1.8] mb-[25px]">
+                    أنا مهند أحمد، مطور ويب من كوستي، السودان. لدي خبرة واسعة في تصميم وبناء وتخصيص المواقع الإلكترونية، كما أنني متمكن من WordPress.
+                  </p>
+                  <a 
+                    href="#" 
+                    className="inline-block bg-[#FF4C60] text-white text-[16px] font-bold py-[12px] px-[32px] rounded-[30px] shadow-[0px_5px_20px_0px_rgba(255,76,96,0.4)] transition-all duration-300 hover:scale-105"
+                  >
+                    تحميل السيرة الذاتية
+                  </a>
                 </div>
-                <Progress value={skill.value} className="h-2 bg-secondary" />
+
+                {/* Skill Bars */}
+                <div className="w-full md:w-1/2 px-[15px]">
+                  {/* Skill Item 1 */}
+                  <div className="mb-[20px]">
+                    <div className="flex justify-between items-center mb-[10px]">
+                      <h4 className="text-[16px] font-bold text-[#353353] m-0">التطوير</h4>
+                      <span className="text-[14px] text-[#5E5C7F]">85%</span>
+                    </div>
+                    <div className="h-[7px] w-full bg-[#F1F1F1] rounded-[15px] overflow-hidden">
+                      <div 
+                        className="h-full bg-[#FFD15C] rounded-[15px]" 
+                        style={{ width: '85%' }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Skill Item 2 */}
+                  <div className="mb-[20px]">
+                    <div className="flex justify-between items-center mb-[10px]">
+                      <h4 className="text-[16px] font-bold text-[#353353] m-0">تصميم UI/UX</h4>
+                      <span className="text-[14px] text-[#5E5C7F]">95%</span>
+                    </div>
+                    <div className="h-[7px] w-full bg-[#F1F1F1] rounded-[15px] overflow-hidden">
+                      <div 
+                        className="h-full bg-[#FF4C60] rounded-[15px]" 
+                        style={{ width: '95%' }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Skill Item 3 */}
+                  <div>
+                    <div className="flex justify-between items-center mb-[10px]">
+                      <h4 className="text-[16px] font-bold text-[#353353] m-0">التصوير</h4>
+                      <span className="text-[14px] text-[#5E5C7F]">70%</span>
+                    </div>
+                    <div className="h-[7px] w-full bg-[#F1F1F1] rounded-[15px] overflow-hidden">
+                      <div 
+                        className="h-full bg-[#6C6CE5] rounded-[15px]" 
+                        style={{ width: '70%' }}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Stats */}
-      <div className="max-w-6xl mx-auto mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-        {stats.map((stat) => (
-          <div key={stat.label} className="bg-card rounded-2xl p-6 text-center">
-            <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-            <div className="text-sm text-muted-foreground">{stat.label}</div>
+        {/* Facts Row */}
+        <div className="flex flex-wrap -mx-[15px] mt-[70px]">
+          {/* Fact 1 */}
+          <div className="w-1/2 md:w-1/4 px-[15px] mb-[30px] md:mb-0">
+            <div className="flex items-center">
+              <Flame className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
+              <div>
+                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">198</h3>
+                <p className="text-[16px] text-[#5E5C7F] m-0">مشروع مكتمل</p>
+              </div>
+            </div>
           </div>
-        ))}
+
+          {/* Fact 2 */}
+          <div className="w-1/2 md:w-1/4 px-[15px] mb-[30px] md:mb-0">
+            <div className="flex items-center">
+              <Coffee className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
+              <div>
+                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">5670</h3>
+                <p className="text-[16px] text-[#5E5C7F] m-0">كوب قهوة</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Fact 3 */}
+          <div className="w-1/2 md:w-1/4 px-[15px] mb-[30px] md:mb-0">
+            <div className="flex items-center">
+              <Users className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
+              <div>
+                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">427</h3>
+                <p className="text-[16px] text-[#5E5C7F] m-0">عميل راضٍ</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Fact 4 */}
+          <div className="w-1/2 md:w-1/4 px-[15px]">
+            <div className="flex items-center">
+              <Award className="w-[36px] h-[36px] text-[#D3D3D3] ml-[20px]" strokeWidth={1.5} />
+              <div>
+                <h3 className="text-[30px] font-bold text-[#353353] leading-none mb-[5px]">35</h3>
+                <p className="text-[16px] text-[#5E5C7F] m-0">جائزة فائزة</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
+
+export default AboutSection;
