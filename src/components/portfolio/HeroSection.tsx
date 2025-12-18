@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FloatingShapes } from "./FloatingShapes";
+
 import mohandImage from "@/assets/mohand.jpg";
 
 const roles = [
@@ -132,8 +132,6 @@ export const HeroSection = () => {
           <rect x="10" y="10" width="80" height="80" fill="currentColor" />
         </svg>
       </div>
-
-      <FloatingShapes />
 
       <div className="text-center z-10 animate-fade-in">
         {/* Avatar */}
