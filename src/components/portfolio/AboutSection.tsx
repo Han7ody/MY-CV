@@ -30,7 +30,7 @@ export const AboutSection = () => {
                 {/* About Text */}
                 <div className="w-full md:w-1/2 px-[15px] mb-[30px] md:mb-0">
                   <p className="text-[#5E5C7F] text-[16px] leading-[1.8] mb-[25px]">
-                    أنا مهند أحمد، مطور ويب من كوستي، السودان. لدي خبرة واسعة في تصميم وبناء وتخصيص المواقع الإلكترونية، كما أنني متمكن من WordPress.
+                    أنا مهند أحمد، مطور ويب Full-Stack من السودان، لدي خبرة واسعة في تصميم وتطوير المواقع الإلكترونية. أعمل على تطوير الواجهات الأمامية والخلفية مع الاهتمام بتجربة المستخدم (UI/UX)، كما أنني متمكن من WordPress وبناء مواقع متكاملة وعصرية.
                   </p>
                   <a 
                     href="#" 
@@ -42,16 +42,16 @@ export const AboutSection = () => {
 
                 {/* Skill Bars */}
                 <div className="w-full md:w-1/2 px-[15px]">
-                  {/* Skill Item 1 */}
+                {/* Skill Item 1 */}
                   <div className="mb-[20px]">
                     <div className="flex justify-between items-center mb-[10px]">
                       <h4 className="text-[16px] font-bold text-[#353353] m-0">التطوير</h4>
-                      <span className="text-[14px] text-[#5E5C7F]">85%</span>
+                      <span className="text-[14px] text-[#5E5C7F]">90%</span>
                     </div>
                     <div className="h-[7px] w-full bg-[#F1F1F1] rounded-[15px] overflow-hidden">
                       <div 
                         className="h-full bg-[#FFD15C] rounded-[15px]" 
-                        style={{ width: '85%' }}
+                        style={{ width: '90%' }}
                       />
                     </div>
                   </div>
@@ -73,13 +73,13 @@ export const AboutSection = () => {
                   {/* Skill Item 3 */}
                   <div>
                     <div className="flex justify-between items-center mb-[10px]">
-                      <h4 className="text-[16px] font-bold text-[#353353] m-0">التصوير</h4>
-                      <span className="text-[14px] text-[#5E5C7F]">70%</span>
+                      <h4 className="text-[16px] font-bold text-[#353353] m-0">تطوير الويب (Full-Stack)</h4>
+                      <span className="text-[14px] text-[#5E5C7F]">85%</span>
                     </div>
                     <div className="h-[7px] w-full bg-[#F1F1F1] rounded-[15px] overflow-hidden">
                       <div 
                         className="h-full bg-[#6C6CE5] rounded-[15px]" 
-                        style={{ width: '70%' }}
+                        style={{ width: '85%' }}
                       />
                     </div>
                   </div>
