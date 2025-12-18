@@ -1,4 +1,5 @@
 import React from 'react';
+import { MessageCircle } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '919592004024';
 
@@ -116,8 +117,9 @@ export const PricingSection = () => {
               {/* CTA Button */}
               <button
                 onClick={() => handleWhatsAppClick(plan.title, plan.price)}
-                className="inline-block bg-[#FF4C60] text-white text-[16px] font-bold py-[12px] px-[32px] rounded-[30px] transition-all duration-300 hover:opacity-90 shadow-[0px_5px_20px_0px_rgba(255,76,96,0.4)]"
+                className="inline-flex items-center gap-2 bg-[#FF4C60] text-white text-[16px] font-bold py-[12px] px-[32px] rounded-[30px] transition-all duration-300 hover:opacity-90 shadow-[0px_5px_20px_0px_rgba(255,76,96,0.4)]"
               >
+                <MessageCircle size={20} />
                 ابدأ الآن
               </button>
             </div>
