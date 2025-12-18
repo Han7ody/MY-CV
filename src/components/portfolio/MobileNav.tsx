@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, Home, User, Briefcase, GraduationCap, Layers, FileText, MessageSquare } from "lucide-react";
 
 const navItems = [
@@ -13,17 +13,37 @@ const navItems = [
 
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isInHero, setIsInHero] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('home');
+      if (heroSection) {
+        const heroHeight = heroSection.offsetHeight;
+        setIsInHero(window.scrollY < heroHeight - 64);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const headerBg = isInHero ? 'bg-transparent' : 'bg-white shadow-md';
+  const textColor = isInHero ? 'text-white' : 'text-[#353353]';
+  const accentColor = isInHero ? 'text-[#FFD15C]' : 'text-[#FF4C60]';
 
   return (
     <div className="lg:hidden">
       {/* Mobile Header */}
-      <div className="fixed top-0 left-0 right-0 h-16 bg-[#353353] z-50 flex items-center justify-between px-4">
-        <h1 className="text-xl font-bold text-white">
-          بولبي<span className="text-[#FFD15C]">.</span>
+      <div className={`fixed top-0 left-0 right-0 h-16 z-50 flex items-center justify-between px-4 transition-all duration-300 ${headerBg}`}>
+        <h1 className={`text-xl font-bold transition-colors duration-300 ${textColor}`}>
+          بولبي<span className={`transition-colors duration-300 ${accentColor}`}>.</span>
         </h1>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-10 h-10 flex items-center justify-center text-white"
+          className={`w-10 h-10 flex items-center justify-center transition-colors duration-300 ${textColor}`}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
