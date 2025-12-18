@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const testimonials = [
   {
@@ -40,6 +40,31 @@ const clientLogos = [
 
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(diff) > minSwipeDistance) {
+      if (diff > 0 && currentIndex > 0) {
+        // Swipe left - go to previous (RTL)
+        setCurrentIndex(currentIndex - 1);
+      } else if (diff < 0 && currentIndex < testimonials.length - 1) {
+        // Swipe right - go to next (RTL)
+        setCurrentIndex(currentIndex + 1);
+      }
+    }
+  };
 
   return (
     <section id="testimonials" className="py-[110px] bg-[#F9F9FF]">
@@ -50,7 +75,12 @@ export const TestimonialsSection = () => {
         </h2>
 
         {/* Testimonials Slider */}
-        <div className="relative overflow-hidden mb-[40px]">
+        <div 
+          className="relative overflow-hidden mb-[40px] touch-pan-y"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div 
             className="flex transition-transform duration-500 ease-out"
             style={{ transform: `translateX(${currentIndex * 100}%)` }}
