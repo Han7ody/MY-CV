@@ -17,12 +17,12 @@ export const HeroSection = () => {
 
         {/* Name */}
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
-          Bolby Doe
+          بولبي دو
         </h1>
 
         {/* Tagline */}
         <p className="text-lg text-muted-foreground mb-6">
-          I'm a UI/UX designer
+          أنا مصمم واجهات مستخدم
         </p>
 
         {/* Social Links */}
@@ -48,12 +48,12 @@ export const HeroSection = () => {
 
         {/* CTA Button */}
         <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 rounded-full text-base font-medium">
-          Hire me
+          وظفني
         </Button>
 
         {/* Scroll Down */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground text-sm">
-          <p className="mb-2">Scroll Down</p>
+          <p className="mb-2">انتقل للأسفل</p>
           <div className="w-6 h-10 border-2 border-muted-foreground rounded-full mx-auto flex justify-center">
             <div className="w-1.5 h-1.5 bg-muted-foreground rounded-full mt-2 animate-bounce" />
           </div>

@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Menu, X, Home, User, Briefcase, GraduationCap, Layers, FileText, MessageCircle } from "lucide-react";
 
 const navItems = [
-  { icon: Home, label: "Home", href: "#home" },
-  { icon: User, label: "About", href: "#about" },
-  { icon: Briefcase, label: "Services", href: "#services" },
-  { icon: GraduationCap, label: "Experience", href: "#experience" },
-  { icon: Layers, label: "Works", href: "#works" },
-  { icon: FileText, label: "Blog", href: "#blog" },
-  { icon: MessageCircle, label: "Contact", href: "#contact" },
+  { icon: Home, label: "الرئيسية", href: "#home" },
+  { icon: User, label: "نبذة عني", href: "#about" },
+  { icon: Briefcase, label: "الخدمات", href: "#services" },
+  { icon: GraduationCap, label: "الخبرات", href: "#experience" },
+  { icon: Layers, label: "الأعمال", href: "#works" },
+  { icon: FileText, label: "المدونة", href: "#blog" },
+  { icon: MessageCircle, label: "تواصل معي", href: "#contact" },
 ];
 
 export const MobileNav = () => {
@@ -19,7 +19,7 @@ export const MobileNav = () => {
       {/* Mobile Header */}
       <div className="fixed top-0 left-0 right-0 h-16 bg-sidebar z-50 flex items-center justify-between px-4">
         <h1 className="text-xl font-bold text-foreground">
-          Bolby<span className="text-primary">.</span>
+          بولبي<span className="text-primary">.</span>
         </h1>
         <button
           onClick={() => setIsOpen(!isOpen)}

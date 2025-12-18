@@ -2,23 +2,23 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 
 const skills = [
-  { name: "Development", value: 85 },
-  { name: "UI/UX design", value: 95 },
-  { name: "Photography", value: 70 },
+  { name: "التطوير", value: 85 },
+  { name: "تصميم واجهات المستخدم", value: 95 },
+  { name: "التصوير", value: 70 },
 ];
 
 const stats = [
-  { value: "198", label: "Projects completed" },
-  { value: "5670", label: "Cup of coffee" },
-  { value: "427", label: "Satisfied clients" },
-  { value: "35", label: "Nominees winner" },
+  { value: "198", label: "مشروع مكتمل" },
+  { value: "5670", label: "فنجان قهوة" },
+  { value: "427", label: "عميل راضٍ" },
+  { value: "35", label: "جائزة فائزة" },
 ];
 
 export const AboutSection = () => {
   return (
     <section id="about" className="py-20 px-6 lg:px-12">
       <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
-        About Me
+        نبذة عني
       </h2>
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -32,11 +32,11 @@ export const AboutSection = () => {
         {/* Content */}
         <div>
           <p className="text-muted-foreground mb-6 leading-relaxed">
-            I am Bolby Doe, web developer from London, United Kingdom. I have rich experience in web site design and building and customization, also I am good at WordPress.
+            أنا بولبي دو، مطور ويب من لندن، المملكة المتحدة. لدي خبرة واسعة في تصميم وبناء وتخصيص المواقع، كما أنني متميز في WordPress.
           </p>
 
           <Button variant="outline" className="mb-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            Download CV
+            تحميل السيرة الذاتية
           </Button>
 
           {/* Skills */}

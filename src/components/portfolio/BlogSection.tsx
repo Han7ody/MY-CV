@@ -1,26 +1,26 @@
 const posts = [
   {
     id: 1,
-    category: "Reviews",
-    title: "5 Best App Development Tool for Your Project",
-    date: "09 February, 2020",
-    author: "Bolby",
+    category: "مراجعات",
+    title: "أفضل 5 أدوات لتطوير التطبيقات لمشروعك",
+    date: "09 فبراير، 2024",
+    author: "بولبي",
     emoji: "📱",
   },
   {
     id: 2,
-    category: "Tutorial",
-    title: "Common Misconceptions About Payment",
-    date: "07 February, 2020",
-    author: "Bolby",
+    category: "دروس",
+    title: "مفاهيم خاطئة شائعة حول الدفع الإلكتروني",
+    date: "07 فبراير، 2024",
+    author: "بولبي",
     emoji: "💳",
   },
   {
     id: 3,
-    category: "Business",
-    title: "3 Things To Know About Startup Business",
-    date: "06 February, 2020",
-    author: "Bolby",
+    category: "أعمال",
+    title: "3 أشياء يجب معرفتها عن الشركات الناشئة",
+    date: "06 فبراير، 2024",
+    author: "بولبي",
     emoji: "🚀",
   },
 ];
@@ -29,7 +29,7 @@ export const BlogSection = () => {
   return (
     <section id="blog" className="py-20 px-6 lg:px-12">
       <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
-        Latest Posts
+        آخر المقالات
       </h2>
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
