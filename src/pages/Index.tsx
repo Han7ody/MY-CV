@@ -16,8 +16,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <FloatingShapes />
       <Sidebar />
+      <MobileNav />
       
-      <main>
+      <main className="lg:mr-[80px]">
         <HeroSection />
         <AboutSection />
         <ServicesSection />
