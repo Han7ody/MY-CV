@@ -115,12 +115,8 @@ export const Sidebar = () => {
         <div className={`site-logo mb-0 transition-all duration-500 delay-100 ${
           isSidebarOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-10px]"
         }`}>
-          <a href="/">
-            <img
-              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/logo-1.svg"
-              alt="بولبي"
-              className="h-[33px] w-auto"
-            />
+          <a href="/" className="text-[28px] font-bold text-white tracking-wide">
+            hanody.
           </a>
         </div>
 
