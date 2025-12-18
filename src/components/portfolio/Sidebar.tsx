@@ -23,11 +23,19 @@ const navItems = [
 export const Sidebar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isInHero, setIsInHero] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "about", "services", "experience", "works", "blog", "contact"];
       const scrollPosition = window.scrollY + 200;
+
+      // Check if in hero section
+      const heroSection = document.getElementById('home');
+      if (heroSection) {
+        const heroHeight = heroSection.offsetHeight;
+        setIsInHero(window.scrollY < heroHeight - 100);
+      }
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -42,6 +50,7 @@ export const Sidebar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -57,6 +66,10 @@ export const Sidebar = () => {
     };
   }, [isSidebarOpen]);
 
+  // Dynamic colors based on scroll position
+  const hamburgerColor = isInHero ? 'bg-white' : 'bg-[#353353]';
+  const hamburgerHoverColor = isInHero ? 'group-hover:bg-[#FFD15C]' : 'group-hover:bg-[#FF4C60]';
+
   return (
     <>
       {/* Fixed Header with Hamburger Menu */}
@@ -67,9 +80,9 @@ export const Sidebar = () => {
           className="flex flex-col justify-center items-center gap-[5px] p-2 group"
           aria-label="فتح القائمة"
         >
-          <span className="w-[25px] h-[3px] bg-white rounded-full transition-all duration-300 group-hover:bg-[#FFD15C] group-hover:w-[20px]"></span>
-          <span className="w-[25px] h-[3px] bg-white rounded-full transition-all duration-300 group-hover:bg-[#FFD15C]"></span>
-          <span className="w-[25px] h-[3px] bg-white rounded-full transition-all duration-300 group-hover:bg-[#FFD15C] group-hover:w-[20px]"></span>
+          <span className={`w-[25px] h-[3px] rounded-full transition-all duration-300 ${hamburgerColor} ${hamburgerHoverColor} group-hover:w-[20px]`}></span>
+          <span className={`w-[25px] h-[3px] rounded-full transition-all duration-300 ${hamburgerColor} ${hamburgerHoverColor}`}></span>
+          <span className={`w-[25px] h-[3px] rounded-full transition-all duration-300 ${hamburgerColor} ${hamburgerHoverColor} group-hover:w-[20px]`}></span>
         </button>
       </header>
 
