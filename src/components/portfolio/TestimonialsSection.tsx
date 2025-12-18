@@ -2,16 +2,28 @@ import React, { useState } from 'react';
 
 const testimonials = [
   {
-    name: "أحمد محمد",
-    role: "مصمم في Dribbble",
+    name: "عميل — موقع تعريفي",
+    role: "تطوير موقع ويب",
     avatar: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/avatar-3-17.svg",
-    content: "أستمتع بالعمل مع هذا الفريق وأتعلم الكثير. أنتم تجعلون العملية ممتعة ومثيرة. حظاً موفقاً! 🔥"
+    content: "تنفيذ احترافي وتسليم في الوقت. الموقع متجاوب وسريع ويعكس هوية العمل بشكل ممتاز."
   },
   {
-    name: "سارة أحمد",
-    role: "مصممة منتجات",
+    name: "عميل — لوحة تحكم",
+    role: "Full-Stack Web Application",
     avatar: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/avatar-3-17.svg",
-    content: "تجربة رائعة في التعامل معهم. احترافية عالية والتزام بالمواعيد. أنصح بهم بشدة! 👍"
+    content: "تنظيم ممتاز في الكود، تواصل واضح، وتنفيذ دقيق للمتطلبات مع أداء عالي."
+  },
+  {
+    name: "عميل — متجر إلكتروني",
+    role: "تطوير متجر وربط الدفع",
+    avatar: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/avatar-3-17.svg",
+    content: "تجربة رائعة من البداية للنهاية، اهتمام بالأمان وسهولة الاستخدام، والنتيجة مرضية جدًا."
+  },
+  {
+    name: "عميل — مشروع تدريبي",
+    role: "Front-End & UI/UX",
+    avatar: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/avatar-3-17.svg",
+    content: "تصميم أنيق وتجربة مستخدم سلسة، مع اهتمام بالتفاصيل وتحسين الأداء."
   }
 ];
 
