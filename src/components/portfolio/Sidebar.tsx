@@ -73,7 +73,7 @@ export const Sidebar = () => {
   return (
     <>
       {/* Fixed Header with Hamburger Menu */}
-      <header className="fixed top-0 left-0 right-0 z-[50] flex items-center justify-between px-[20px] py-4 bg-transparent">
+      <header className="fixed top-0 left-0 right-0 z-[50] flex items-center justify-end px-[20px] py-4 bg-transparent">
         {/* Hamburger Menu Button - Three Lines with Animation */}
         <button
           onClick={() => setIsSidebarOpen(true)}
