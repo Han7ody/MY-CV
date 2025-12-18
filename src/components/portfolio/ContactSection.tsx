@@ -4,7 +4,7 @@ export const ContactSection = () => {
   const mapAsset = "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/images/map-1.svg";
 
   return (
-    <section id="contact" className="py-[110px] bg-[#353353] relative overflow-hidden">
+    <section id="contact" className="py-20 bg-[#353353] relative overflow-hidden">
       <div className="container mx-auto px-[15px] max-w-[1140px] relative z-10">
         {/* Section Title */}
         <div className="mb-[60px]">

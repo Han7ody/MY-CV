@@ -78,7 +78,7 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-[110px] bg-[#F9F9FF]">
+    <section id="testimonials" className="py-20 bg-[#F9F9FF]">
       <div className="container px-[15px] mx-auto max-w-[1140px]">
         {/* Section Heading */}
         <h2 className="text-[36px] font-bold text-[#353353] mb-[60px] text-center">
@@ -145,7 +145,7 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* Pagination Dots */}
-        <div className="flex justify-center items-center gap-2 mb-[100px]">
+        <div className="flex justify-center items-center gap-2 mb-10">
           {testimonials.map((_, index) => (
             <button
               key={index}
