@@ -7,12 +7,12 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="py-20 px-6 lg:px-12 bg-card/50">
       <h2 className="text-3xl font-bold text-foreground mb-4 text-center">
-        Get In Touch
+        تواصل معي
       </h2>
       <p className="text-center text-muted-foreground mb-12">
-        Don't like forms? Send me an{" "}
+        لا تحب النماذج؟ أرسل لي{" "}
         <a href="mailto:name@example.com" className="text-primary hover:underline">
-          email
+          بريداً إلكترونياً
         </a>
         . 👋
       </p>
@@ -21,30 +21,30 @@ export const ContactSection = () => {
         {/* Contact Form */}
         <div className="bg-card rounded-2xl p-8">
           <h3 className="text-xl font-semibold text-foreground mb-6">
-            Let's talk about everything!
+            دعنا نتحدث عن كل شيء!
           </h3>
           <form className="space-y-4">
             <div className="grid md:grid-cols-2 gap-4">
               <Input
-                placeholder="Your name"
+                placeholder="اسمك"
                 className="bg-secondary border-0 h-12"
               />
               <Input
                 type="email"
-                placeholder="Email address"
+                placeholder="البريد الإلكتروني"
                 className="bg-secondary border-0 h-12"
               />
             </div>
             <Input
-              placeholder="Subject"
+              placeholder="الموضوع"
               className="bg-secondary border-0 h-12"
             />
             <Textarea
-              placeholder="Message"
+              placeholder="الرسالة"
               className="bg-secondary border-0 min-h-[150px] resize-none"
             />
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 rounded-full">
-              Send Message
+              إرسال الرسالة
             </Button>
           </form>
         </div>
@@ -56,8 +56,8 @@ export const ContactSection = () => {
               <Phone className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-              <p className="text-muted-foreground">+1 234 567 890</p>
+              <h4 className="font-semibold text-foreground mb-1">الهاتف</h4>
+              <p className="text-muted-foreground">+966 123 456 789</p>
             </div>
           </div>
 
@@ -66,7 +66,7 @@ export const ContactSection = () => {
               <Mail className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-1">Email</h4>
+              <h4 className="font-semibold text-foreground mb-1">البريد الإلكتروني</h4>
               <p className="text-muted-foreground">hello@example.com</p>
             </div>
           </div>
@@ -76,8 +76,8 @@ export const ContactSection = () => {
               <MapPin className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-1">Address</h4>
-              <p className="text-muted-foreground">123 Street, London, UK</p>
+              <h4 className="font-semibold text-foreground mb-1">العنوان</h4>
+              <p className="text-muted-foreground">الرياض، المملكة العربية السعودية</p>
             </div>
           </div>
         </div>

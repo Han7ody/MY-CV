@@ -1,27 +1,27 @@
 import { useState } from "react";
 
-const categories = ["Everything", "Creative", "Art", "Design", "Branding"];
+const categories = ["الكل", "إبداعي", "فني", "تصميم", "هوية بصرية"];
 
 const works = [
-  { id: 1, title: "Project Management Illustration", category: "Art", emoji: "📊" },
-  { id: 2, title: "Guest App Walkthrough Screens", category: "Creative", emoji: "📱" },
-  { id: 3, title: "Delivery App Wireframe", category: "Branding", emoji: "🚀" },
-  { id: 4, title: "Onboarding Motivation", category: "Creative", emoji: "✨" },
-  { id: 5, title: "iMac Mockup Design", category: "Art", emoji: "🖥️" },
-  { id: 6, title: "Game Store App Concept", category: "Design", emoji: "🎮" },
+  { id: 1, title: "رسم توضيحي لإدارة المشاريع", category: "فني", emoji: "📊" },
+  { id: 2, title: "شاشات تطبيق الضيوف", category: "إبداعي", emoji: "📱" },
+  { id: 3, title: "إطار تطبيق التوصيل", category: "هوية بصرية", emoji: "🚀" },
+  { id: 4, title: "تصميم تحفيزي للتهيئة", category: "إبداعي", emoji: "✨" },
+  { id: 5, title: "تصميم ماك بوك", category: "فني", emoji: "🖥️" },
+  { id: 6, title: "مفهوم تطبيق متجر الألعاب", category: "تصميم", emoji: "🎮" },
 ];
 
 export const WorksSection = () => {
-  const [activeCategory, setActiveCategory] = useState("Everything");
+  const [activeCategory, setActiveCategory] = useState("الكل");
 
-  const filteredWorks = activeCategory === "Everything" 
+  const filteredWorks = activeCategory === "الكل" 
     ? works 
     : works.filter(work => work.category === activeCategory);
 
   return (
     <section id="works" className="py-20 px-6 lg:px-12 bg-card/50">
       <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
-        Recent works
+        أحدث الأعمال
       </h2>
 
       {/* Filter Tabs */}
@@ -63,7 +63,7 @@ export const WorksSection = () => {
 
       <div className="text-center mt-10">
         <button className="text-primary hover:underline font-medium">
-          Load more
+          تحميل المزيد
         </button>
       </div>
     </section>

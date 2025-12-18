@@ -1,21 +1,21 @@
 import { Home, User, Briefcase, GraduationCap, Layers, FileText, MessageCircle } from "lucide-react";
 
 const navItems = [
-  { icon: Home, label: "Home", href: "#home" },
-  { icon: User, label: "About", href: "#about" },
-  { icon: Briefcase, label: "Services", href: "#services" },
-  { icon: GraduationCap, label: "Experience", href: "#experience" },
-  { icon: Layers, label: "Works", href: "#works" },
-  { icon: FileText, label: "Blog", href: "#blog" },
-  { icon: MessageCircle, label: "Contact", href: "#contact" },
+  { icon: Home, label: "الرئيسية", href: "#home" },
+  { icon: User, label: "نبذة عني", href: "#about" },
+  { icon: Briefcase, label: "الخدمات", href: "#services" },
+  { icon: GraduationCap, label: "الخبرات", href: "#experience" },
+  { icon: Layers, label: "الأعمال", href: "#works" },
+  { icon: FileText, label: "المدونة", href: "#blog" },
+  { icon: MessageCircle, label: "تواصل معي", href: "#contact" },
 ];
 
 export const Sidebar = () => {
   return (
-    <aside className="fixed left-0 top-0 h-full w-[220px] bg-sidebar z-50 flex flex-col py-8 px-6 hidden lg:flex">
+    <aside className="fixed right-0 top-0 h-full w-[220px] bg-sidebar z-50 flex-col py-8 px-6 hidden lg:flex">
       <div className="mb-12">
         <h1 className="text-2xl font-bold text-foreground">
-          Bolby<span className="text-primary">.</span>
+          بولبي<span className="text-primary">.</span>
         </h1>
       </div>
 
@@ -36,7 +36,7 @@ export const Sidebar = () => {
       </nav>
 
       <div className="text-xs text-muted-foreground">
-        © 2024 Bolby Template.
+        © 2024 قالب بولبي.
       </div>
     </aside>
   );

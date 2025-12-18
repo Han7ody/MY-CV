@@ -4,23 +4,23 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "John Doe",
-    role: "Product designer at Dribbble",
-    content: "I enjoy working with the theme and learn so much. You guys make the process fun and interesting. Good luck! 🔥",
+    name: "أحمد محمد",
+    role: "مصمم منتجات في Dribbble",
+    content: "أستمتع بالعمل مع هذا الفريق وأتعلم الكثير. أنتم تجعلون العملية ممتعة ومثيرة. حظاً موفقاً! 🔥",
     avatar: "👨‍💻",
   },
   {
     id: 2,
-    name: "Jane Smith",
-    role: "CEO at TechCorp",
-    content: "I enjoy working with the theme and learn so much. You guys make the process fun and interesting. Good luck! 👍",
+    name: "سارة أحمد",
+    role: "المدير التنفيذي في TechCorp",
+    content: "تجربة رائعة في التعامل معهم. احترافية عالية والتزام بالمواعيد. أنصح بهم بشدة! 👍",
     avatar: "👩‍💼",
   },
   {
     id: 3,
-    name: "Mike Johnson",
-    role: "Developer at Google",
-    content: "I enjoy working with the theme and learn so much. You guys make the process fun and interesting. Good luck! 🎉",
+    name: "محمد علي",
+    role: "مطور في Google",
+    content: "فريق محترف ومتعاون. النتائج تفوق التوقعات دائماً. شكراً لكم! 🎉",
     avatar: "👨‍🔬",
   },
 ];
@@ -41,7 +41,7 @@ export const TestimonialsSection = () => {
   return (
     <section className="py-20 px-6 lg:px-12 bg-card/50">
       <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
-        Clients & Reviews
+        العملاء والتقييمات
       </h2>
 
       {/* Testimonials Carousel */}
@@ -61,16 +61,16 @@ export const TestimonialsSection = () => {
           {/* Navigation */}
           <div className="flex justify-center gap-4 mt-8">
             <button
-              onClick={prevTestimonial}
-              className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
               onClick={nextTestimonial}
               className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               <ChevronRight className="w-5 h-5" />
+            </button>
+            <button
+              onClick={prevTestimonial}
+              className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <ChevronLeft className="w-5 h-5" />
             </button>
           </div>
 

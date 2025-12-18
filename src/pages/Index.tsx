@@ -18,7 +18,7 @@ const Index = () => {
       <Sidebar />
       <MobileNav />
       
-      <main className="lg:ml-[200px]">
+      <main className="lg:mr-[220px]">
         <HeroSection />
         <AboutSection />
         <ServicesSection />
