@@ -60,18 +60,16 @@ export const PricingSection = () => {
           خطط الأسعار
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className={`relative flex flex-col items-center text-center bg-white p-[30px] rounded-[20px] transition-all duration-500 ease-out group cursor-pointer
+              className={`relative flex flex-col items-center text-center bg-white p-[30px] rounded-[20px] transition-all duration-500 ease-out group cursor-pointer shadow-[0px_5px_20px_0px_rgba(69,67,96,0.1)]
                 hover:-translate-y-3 hover:shadow-[0px_20px_40px_0px_rgba(255,76,96,0.3)] hover:scale-[1.02]
                 ${plan.recommended 
-                  ? 'z-10 shadow-[0px_5px_20px_0px_rgba(108,108,229,0.5)] py-[40px] px-[30px]' 
-                  : 'z-0 shadow-[0px_5px_20px_0px_rgba(69,67,96,0.1)] my-[20px] md:my-[30px]'
+                  ? 'ring-2 ring-[#6C6CE5] shadow-[0px_5px_20px_0px_rgba(108,108,229,0.3)]' 
+                  : ''
                 }
-                ${index === 0 ? 'md:rounded-l-none hover:rounded-[20px]' : ''}
-                ${index === 2 ? 'md:rounded-r-none hover:rounded-[20px]' : ''}
               `}
             >
               {/* Recommended Ribbon */}
