@@ -112,13 +112,6 @@ export const Sidebar = () => {
         </button>
 
         {/* Logo with fade-in animation */}
-        <div className={`site-logo mb-0 transition-all duration-500 delay-100 ${
-          isSidebarOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-10px]"
-        }`}>
-          <a href="/" className="text-[28px] font-bold text-white tracking-wide">
-            hanody.
-          </a>
-        </div>
 
         {/* Main Menu with staggered animation */}
         <nav className="flex-grow flex items-center w-full">
