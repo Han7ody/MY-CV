@@ -4,9 +4,47 @@ import { Button } from "@/components/ui/button";
 import { FloatingShapes } from "./FloatingShapes";
 import mohandImage from "@/assets/mohand.jpg";
 
+const roles = [
+  "مصمم UI/UX",
+  "مطور واجهات",
+  "مصمم جرافيك",
+  "مبدع رقمي",
+];
+
 export const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  // Typing animation effect
+  useEffect(() => {
+    const currentRole = roles[currentRoleIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseTime = 2000;
+
+    if (!isDeleting && displayText === currentRole) {
+      setTimeout(() => setIsDeleting(true), pauseTime);
+      return;
+    }
+
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayText(
+        isDeleting
+          ? currentRole.substring(0, displayText.length - 1)
+          : currentRole.substring(0, displayText.length + 1)
+      );
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentRoleIndex]);
 
   useEffect(() => {
     // Scroll to top on mount
@@ -114,8 +152,11 @@ export const HeroSection = () => {
           مهند أحمد
         </h1>
 
-        {/* Tagline */}
-        <p className="text-lg text-muted-foreground mb-6">أنا مصمم UI/UX</p>
+        {/* Tagline - Auto-changing text */}
+        <p className="text-lg text-muted-foreground mb-6 h-7">
+          <span>{displayText}</span>
+          <span className="animate-pulse">|</span>
+        </p>
 
         {/* Social Links */}
         <div className="flex items-center justify-center gap-4 mb-8">
