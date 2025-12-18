@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import profileImage from "@/assets/mohand.jpg";
 
 export const HeroSection = () => {
   const [textIndex, setTextIndex] = useState(0);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLElement>(null);
   const roles = ["مصمم واجهات مستخدم", "محب للتصوير", "مطور ويب"];
 
   useEffect(() => {
@@ -12,25 +14,101 @@ export const HeroSection = () => {
     return () => clearInterval(interval);
   }, [roles.length]);
 
+  // Track mouse movement
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+        setMousePosition({ x, y });
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Calculate parallax transform for each layer
+  const getParallaxStyle = (intensity: number, reverse: boolean = false) => {
+    const multiplier = reverse ? -1 : 1;
+    return {
+      transform: `translate(${mousePosition.x * intensity * multiplier}px, ${mousePosition.y * intensity * multiplier}px)`,
+      transition: "transform 0.3s ease-out",
+    };
+  };
+
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#353353]"
     >
-      {/* Floating Shapes */}
+      {/* Floating Shapes with Parallax Effect */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-[10%] left-[5%] w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[25px] border-b-shape-yellow opacity-60 animate-float" />
-        <div className="absolute top-[20%] right-[10%] w-4 h-4 rounded-full bg-destructive opacity-50 animate-float" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-[30%] left-[8%] w-3 h-3 rounded-full bg-shape-purple opacity-40 animate-float" />
-        <div className="absolute top-[60%] right-[5%] w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-shape-purple opacity-50 animate-float" style={{ animationDelay: "1s" }} />
-        <div className="absolute bottom-[20%] right-[15%] w-5 h-5 rounded-full bg-shape-yellow opacity-30 animate-float" />
-        <div className="absolute top-[40%] left-[15%] w-2 h-2 rounded-full bg-destructive opacity-60 animate-float" style={{ animationDelay: "1s" }} />
-        <svg className="absolute top-[15%] left-[20%] opacity-20 animate-float" width="60" height="20" viewBox="0 0 60 20">
+        {/* Layer 1 - Slow movement */}
+        <div 
+          className="absolute top-[10%] left-[5%] w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[25px] border-b-shape-yellow opacity-60"
+          style={getParallaxStyle(30)}
+        />
+        <div 
+          className="absolute top-[20%] right-[10%] w-4 h-4 rounded-full bg-destructive opacity-50"
+          style={getParallaxStyle(40, true)}
+        />
+        
+        {/* Layer 2 - Medium movement */}
+        <div 
+          className="absolute bottom-[30%] left-[8%] w-3 h-3 rounded-full bg-shape-purple opacity-40"
+          style={getParallaxStyle(50)}
+        />
+        <div 
+          className="absolute top-[60%] right-[5%] w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[18px] border-b-shape-purple opacity-50"
+          style={getParallaxStyle(35, true)}
+        />
+        
+        {/* Layer 3 - Fast movement */}
+        <div 
+          className="absolute bottom-[20%] right-[15%] w-5 h-5 rounded-full bg-shape-yellow opacity-30"
+          style={getParallaxStyle(60)}
+        />
+        <div 
+          className="absolute top-[40%] left-[15%] w-2 h-2 rounded-full bg-destructive opacity-60"
+          style={getParallaxStyle(45, true)}
+        />
+        
+        {/* SVG Waves */}
+        <svg 
+          className="absolute top-[15%] left-[20%] opacity-20" 
+          width="60" 
+          height="20" 
+          viewBox="0 0 60 20"
+          style={getParallaxStyle(25)}
+        >
           <path d="M0 10 Q15 0 30 10 T60 10" stroke="hsl(var(--shape-yellow))" strokeWidth="2" fill="none" />
         </svg>
-        <svg className="absolute bottom-[40%] right-[20%] opacity-20 animate-float" style={{ animationDelay: "1s" }} width="50" height="15" viewBox="0 0 50 15">
+        <svg 
+          className="absolute bottom-[40%] right-[20%] opacity-20" 
+          width="50" 
+          height="15" 
+          viewBox="0 0 50 15"
+          style={getParallaxStyle(55, true)}
+        >
           <path d="M0 7 Q12 0 25 7 T50 7" stroke="hsl(var(--shape-purple))" strokeWidth="2" fill="none" />
         </svg>
+
+        {/* Additional floating elements for more depth */}
+        <div 
+          className="absolute top-[30%] left-[40%] w-2 h-2 rounded-full bg-shape-yellow opacity-20"
+          style={getParallaxStyle(70)}
+        />
+        <div 
+          className="absolute top-[70%] left-[25%] w-3 h-3 rounded-full bg-shape-purple opacity-25"
+          style={getParallaxStyle(80, true)}
+        />
+        <div 
+          className="absolute top-[25%] right-[30%] w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[14px] border-b-destructive opacity-30"
+          style={getParallaxStyle(65)}
+        />
       </div>
 
       {/* Content */}
