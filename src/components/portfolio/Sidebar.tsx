@@ -1,43 +1,134 @@
-import { Home, User, Briefcase, GraduationCap, Layers, FileText, MessageCircle } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import {
+  Home,
+  User,
+  Briefcase,
+  GraduationCap,
+  Layers,
+  FileText,
+  MessageSquare,
+  Menu,
+  X,
+} from "lucide-react";
 
 const navItems = [
-  { icon: Home, label: "الرئيسية", href: "#home" },
-  { icon: User, label: "نبذة عني", href: "#about" },
-  { icon: Briefcase, label: "الخدمات", href: "#services" },
-  { icon: GraduationCap, label: "الخبرات", href: "#experience" },
-  { icon: Layers, label: "الأعمال", href: "#works" },
-  { icon: FileText, label: "المدونة", href: "#blog" },
-  { icon: MessageCircle, label: "تواصل معي", href: "#contact" },
+  { id: "home", label: "الرئيسية", icon: Home },
+  { id: "about", label: "نبذة عني", icon: User },
+  { id: "services", label: "الخدمات", icon: Briefcase },
+  { id: "experience", label: "الخبرات", icon: GraduationCap },
+  { id: "works", label: "الأعمال", icon: Layers },
+  { id: "blog", label: "المدونة", icon: FileText },
+  { id: "contact", label: "تواصل معي", icon: MessageSquare },
 ];
 
 export const Sidebar = () => {
+  const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "services", "experience", "works", "blog", "contact"];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <aside className="fixed right-0 top-0 h-full w-[220px] bg-sidebar z-50 flex-col py-8 px-6 hidden lg:flex">
-      <div className="mb-12">
-        <h1 className="text-2xl font-bold text-foreground">
-          بولبي<span className="text-primary">.</span>
-        </h1>
-      </div>
+    <>
+      {/* Mobile Header */}
+      <header className="fixed top-0 left-0 right-0 z-[50] flex lg:hidden items-center justify-between px-[15px] py-2.5 bg-[#353353] border-b border-white/5">
+        <div className="flex items-center">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 ml-4 text-white"
+            aria-label="فتح القائمة"
+          >
+            {isMobileMenuOpen ? <X size={30} /> : <Menu size={30} />}
+          </button>
+          <div className="site-logo">
+            <a href="/">
+              <img
+                src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/logo-1.svg"
+                alt="بولبي"
+                className="h-[33px] w-auto"
+              />
+            </a>
+          </div>
+        </div>
+      </header>
 
-      <nav className="flex-1">
-        <ul className="space-y-2">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="flex items-center gap-3 px-4 py-3 text-sidebar-foreground hover:text-foreground hover:bg-sidebar-accent rounded-lg transition-all duration-300 group"
-              >
-                <item.icon className="w-5 h-5 group-hover:text-primary transition-colors" />
-                <span className="text-sm font-medium">{item.label}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {/* Overlay for mobile menu */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-[40] lg:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
 
-      <div className="text-xs text-muted-foreground">
-        © 2024 قالب بولبي.
-      </div>
-    </aside>
+      {/* Sidebar Navigation */}
+      <header
+        className={`fixed top-0 right-0 h-full w-[290px] bg-[#353353] p-[50px_40px_40px] z-[100] transition-transform duration-300 transform lg:translate-x-0 ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        } lg:translate-x-0 flex flex-col items-start`}
+      >
+        {/* Logo */}
+        <div className="site-logo mb-0">
+          <a href="/">
+            <img
+              src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/test-clones/cff6d6ec-898e-4bd2-8c92-d81c5cd3246a-jthemes-net/assets/svgs/logo-1.svg"
+              alt="بولبي"
+              className="h-[33px] w-auto"
+            />
+          </a>
+        </div>
+
+        {/* Main Menu */}
+        <nav className="flex-grow flex items-center w-full">
+          <ul className="w-full my-[130px] p-0 list-none">
+            {navItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <li key={item.id} className="relative py-2 font-medium">
+                  <a
+                    href={`#${item.id}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`flex items-center text-base transition-colors duration-300 ease-in-out hover:text-[#FFD15C] ${
+                      activeSection === item.id ? "text-[#FFD15C]" : "text-white"
+                    }`}
+                  >
+                    <span className="ml-3 text-lg">
+                      <IconComponent className="w-5 h-5" />
+                    </span>
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        {/* Site Footer */}
+        <div className="mt-auto">
+          <span className="text-[#8B88B1] text-sm whitespace-nowrap">
+            © 2025 مهند أحمد.
+          </span>
+        </div>
+      </header>
+    </>
   );
 };
+
+export default Sidebar;
