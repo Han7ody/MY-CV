@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# Mohand Ahmed (مهند أحمد) — Personal CV Website
 
-## Project info
+A personal portfolio / CV website built with Vite, React, TypeScript, Tailwind CSS and shadcn-ui.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Live site: (add your live URL here)
+Source: https://github.com/Han7ody/MY-CV
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## About / نبذة
+Name / الاسم: **Mohand Ahmed (مهند أحمد)**
+Title / المسمى الوظيفي: **Full‑Stack Developer & UI/UX Designer**
+Short bio / نبذة قصيرة:
+A frontend & full‑stack developer who builds accessible, performant web apps and designs user‑centred interfaces. (Adjust or replace with your preferred summary.)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Contact / تواصل
+- Email: han7ody@gmail.com
+- Instagram: https://www.instagram.com/hn.7od
+- X (Twitter): https://x.com/han7odyyy
+- LinkedIn: https://www.linkedin.com/in/mohand-ahmed-adam-b10a79260
+- Facebook: https://www.facebook.com/share/1AUY3veznc/
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Key skills / المهارات
+- Languages: TypeScript, JavaScript, HTML, CSS
+- Frameworks & libraries: React, Vite, Tailwind CSS, shadcn-ui
+- Tooling: Node.js, npm, Git, React Router, React Hook Form
+- Other: Responsive design, accessibility (a11y), UI/UX design
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+(Replace or expand with items from your CV if you want different wording or order.)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Project structure (high-level)
+- src/components/portfolio/HeroSection.tsx — Hero section (name, avatar, social links, dynamic tagline)
+- src/components/portfolio/ContactSection.tsx — Contact form (email contact link included)
+- index.html — Site metadata (title, description, author)
 
+---
+
+## Run locally / التشغيل محلياً
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# clone repo
+git clone https://github.com/Han7ody/MY-CV.git
+cd MY-CV
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# install dependencies
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# start dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Build & deploy / البناء والنشر
+```sh
+# build production
+npm run build
 
-**Use GitHub Codespaces**
+# preview production build
+npm run preview
+```
+Deploy to Vercel, Netlify, GitHub Pages, or your preferred host. Add your custom domain through your host's dashboard.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## How to edit / طريقة التعديل
+- Edit files directly in the repository and push commits.
+- Use GitHub Codespaces from the repo page (Code → Codespaces) to edit online.
+- Open an issue or pull request with proposed changes.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## License
+MIT © Mohand Ahmed
